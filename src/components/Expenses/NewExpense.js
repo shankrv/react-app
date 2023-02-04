@@ -3,7 +3,7 @@ import ExpenseForm from './ExpenseForm';
 
 function NewExpense(props) {
   const submitHandler = (expense) => {
-    props.onNewExpense({ id: props.count + 1, ...expense });
+    props.onNewExpense({ id: 'E-' + Number(props.count + 1), ...expense });
   };
   return (
     <div className='new-expense'>
