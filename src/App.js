@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <h2>Expense Tracker</h2>
-      <NewExpense onNewExpense={newExpenseHandler} count={expenses.length} />
+      <NewExpense count={expenses.length} onNewExpense={newExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
