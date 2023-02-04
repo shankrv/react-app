@@ -5,13 +5,13 @@ import ExpenseFilter from './ExpenseFilter';
 import { useState } from 'react';
 
 function Expenses(props) {
-  const expenses = props.expenses;
-
   const [year, setYear] = useState(2020);
 
   const filterHandler = (selectedYear) => {
     setYear(selectedYear);
   };
+
+  const expenses = props.expenses.filter((expense) => year === expense.date.getFullYear());
 
   return (
     <Card className='expenses'>
