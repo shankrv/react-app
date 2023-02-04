@@ -25,8 +25,18 @@ function ExpenseForm() {
     setUserInput({ ...userInput, date: event.target.value });
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const expense = {
+      title: userInput.title,
+      amount: parseFloat(userInput.amount),
+      date: new Date(userInput.date),
+    };
+    console.log(expense);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
