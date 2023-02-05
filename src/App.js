@@ -4,10 +4,11 @@ import NewExpense from './components/Expenses/NewExpense';
 import { useState } from 'react';
 
 const initExpenses = [
-  { id: 'E-1', date: new Date(2023, 0, 18), title: 'Rent', amount: 10000 },
+  { id: 'E-1', date: new Date(2022, 5, 18), title: 'Rent', amount: 5000 },
   { id: 'E-2', date: new Date(2023, 0, 19), title: 'Maintenance', amount: 1500 },
-  { id: 'E-3', date: new Date(2023, 0, 20), title: 'Electric Bill', amount: 250 },
-  { id: 'E-4', date: new Date(2023, 0, 21), title: 'Internet', amount: 675 },
+  { id: 'E-3', date: new Date(2023, 1, 20), title: 'Electric Bill', amount: 1250 },
+  { id: 'E-4', date: new Date(2022, 11, 21), title: 'Internet', amount: 3560 },
+  { id: 'E-5', date: new Date(2020, 2, 9), title: 'Health Insurance', amount: 2500 },
 ];
 
 function App() {
