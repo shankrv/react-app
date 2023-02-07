@@ -1,15 +1,14 @@
-/** --- Functional Component --- **
-import './Button.css';
+import classes from './Button.module.css';
 
 const Button = (props) => {
   return (
-    <button type={props.type} className='button' onClick={props.onClick}>
+    <button type={props.type} className={classes.button} onClick={props.onClick}>
       {props.children}
     </button>
   );
 };
-*/
 
+/** --- Styled Component --- **
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -20,6 +19,7 @@ const Button = styled.button`
   background: #343a40;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
+  width: 100%
 
   &:focus {
     outline: none;
@@ -32,6 +32,12 @@ const Button = styled.button`
     border-color: #3a3a3a;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
   }
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
+
 `;
+*/
 
 export default Button;
