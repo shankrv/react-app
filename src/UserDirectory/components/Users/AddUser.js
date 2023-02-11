@@ -1,9 +1,9 @@
 import Card from '../General/Card';
 import Button from '../General/Button';
 import ErrorModal from '../General/ErrorModal';
-import Wrapper from '../Helpers/Wrapper';
+// import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 function AddUser(props) {
   const [data, setData] = useState({ name: '', age: '' });
@@ -38,7 +38,7 @@ function AddUser(props) {
   const errorHandler = () => setError(null);
 
   return (
-    <Wrapper>
+    <Fragment>
       {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
       <Card className={classes.input}>
         <form onSubmit={submitHandler}>
@@ -49,7 +49,7 @@ function AddUser(props) {
           <Button type='submit'>Add User</Button>
         </form>
       </Card>
-    </Wrapper>
+    </Fragment>
   );
 }
 
