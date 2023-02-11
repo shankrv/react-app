@@ -1,6 +1,7 @@
 import Card from '../General/Card';
 import Button from '../General/Button';
 import ErrorModal from '../General/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
 import { useState } from 'react';
 
@@ -11,7 +12,7 @@ function AddUser(props) {
   const submitHandler = (event) => {
     event.preventDefault();
     if (!data.name.trim().length || !data.age) {
-      setError({ title: 'Validation Error', message: 'Please enter a valid title and age.' });
+      setError({ title: 'Validation Error', message: 'Please enter a valid name and age.' });
       return;
     }
     if (data.age < 1) {
@@ -37,7 +38,7 @@ function AddUser(props) {
   const errorHandler = () => setError(null);
 
   return (
-    <div>
+    <Wrapper>
       {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
       <Card className={classes.input}>
         <form onSubmit={submitHandler}>
@@ -48,7 +49,7 @@ function AddUser(props) {
           <Button type='submit'>Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 }
 
