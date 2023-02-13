@@ -3,14 +3,15 @@ import Button from '../General/Button';
 import ErrorModal from '../General/ErrorModal';
 // import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 
 function AddUser(props) {
-  const [data, setData] = useState({ name: '', age: '' });
+  const [nameRef, ageRef] = [useRef(), useRef()];
   const [error, setError] = useState();
 
   const submitHandler = (event) => {
     event.preventDefault();
+    const data = { name: nameRef.current.value, age: Number(ageRef.current.value) };
     if (!data.name.trim().length || !data.age) {
       setError({ title: 'Validation Error', message: 'Please enter a valid name and age.' });
       return;
@@ -20,19 +21,7 @@ function AddUser(props) {
       return;
     }
     props.onAddUser(data);
-    setData({ name: '', age: '' });
-  };
-
-  const nameChangeHandler = (event) => {
-    setData((prevData) => {
-      return { ...prevData, name: event.target.value };
-    });
-  };
-
-  const ageChangeHandler = (event) => {
-    setData((prevData) => {
-      return { ...prevData, age: Number(event.target.value) };
-    });
+    event.target.reset();
   };
 
   const errorHandler = () => setError(null);
@@ -43,9 +32,9 @@ function AddUser(props) {
       <Card className={classes.input}>
         <form onSubmit={submitHandler}>
           <label htmlFor='name'>Name</label>
-          <input id='name' type='text' value={data.name} onChange={nameChangeHandler}></input>
+          <input id='name' type='text' ref={nameRef}></input>
           <label htmlFor='age'>Age (Years)</label>
-          <input id='age' type='number' value={data.age} onChange={ageChangeHandler}></input>
+          <input id='age' type='number' ref={ageRef}></input>
           <Button type='submit'>Add User</Button>
         </form>
       </Card>
