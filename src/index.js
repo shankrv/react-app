@@ -4,6 +4,8 @@ import './index.css';
 import CourseGoalsApp from './CourseGoals/App';
 import ExpenseTrackerApp from './ExpenseTracker/App';
 import UserDirectoryApp from './UserDirectory/App';
+import UserLoginApp from './UserLogin/App';
+
 const { REACT_APP_PROJECT } = process.env;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +21,10 @@ switch (REACT_APP_PROJECT) {
 
   case 'USERDIR':
     root.render(<UserDirectoryApp />);
+    break;
+
+  case 'USERLOGIN':
+    root.render(<UserLoginApp />);
     break;
 
   default:
