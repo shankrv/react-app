@@ -5,6 +5,7 @@ import CourseGoalsApp from './CourseGoals/App';
 import ExpenseTrackerApp from './ExpenseTracker/App';
 import UserDirectoryApp from './UserDirectory/App';
 import UserLoginApp from './UserLogin/App';
+import { AuthContextProvider } from './UserLogin/context/auth';
 
 const { REACT_APP_PROJECT } = process.env;
 
@@ -24,7 +25,11 @@ switch (REACT_APP_PROJECT) {
     break;
 
   case 'USERLOGIN':
-    root.render(<UserLoginApp />);
+    root.render(
+      <AuthContextProvider>
+        <UserLoginApp />
+      </AuthContextProvider>
+    );
     break;
 
   default:
