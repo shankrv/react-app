@@ -6,6 +6,7 @@ import ExpenseTrackerApp from './ExpenseTracker/App';
 import UserDirectoryApp from './UserDirectory/App';
 import UserLoginApp from './UserLogin/App';
 import { AuthContextProvider } from './UserLogin/context/auth';
+import FoodOrderApp from './FoodOrder/App';
 
 const { REACT_APP_PROJECT } = process.env;
 
@@ -30,6 +31,10 @@ switch (REACT_APP_PROJECT) {
         <UserLoginApp />
       </AuthContextProvider>
     );
+    break;
+
+  case 'FOODORDER':
+    root.render(<FoodOrderApp />);
     break;
 
   default:
