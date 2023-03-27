@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import classes from './HeaderCart.module.css';
 
@@ -8,8 +8,20 @@ import CartContext from '../../context/cart';
 const HeaderCart = (props) => {
   const context = useContext(CartContext);
   const itemsCount = context.items.length;
+
+  const [animation, setAnimation] = useState(false);
+
+  const btnClasses = `${classes.button} ${animation ? classes.bump : ''}`;
+
+  useEffect(() => {
+    if (!context.items.length) return;
+    setAnimation(true);
+    const timer = setTimeout(() => setAnimation(false), 300); // 300ms animation
+    return () => clearTimeout(timer);
+  }, [context.items]);
+
   return (
-    <button className={classes.button} onClick={props.onShowCart}>
+    <button className={btnClasses} onClick={props.onShowCart}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
