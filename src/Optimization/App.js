@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className='app'>
       <h1>Optimization</h1>
-      <Demo show={showParagraph} />
+      <Demo show={false} />
       <Button onClick={toggleHandler}>Toggle Paragraph</Button>
     </div>
   );

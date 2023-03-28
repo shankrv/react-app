@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Para from './Para';
 
 const Demo = (props) => {
@@ -5,4 +7,4 @@ const Demo = (props) => {
   return <Para>{props.show ? 'New Paragraph' : ''}</Para>;
 };
 
-export default Demo;
+export default React.memo(Demo);
