@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import './App.css';
 
@@ -7,15 +7,21 @@ import Demo from './components/Demo/Demo';
 
 const App = () => {
   const [showParagraph, setShowParagraph] = useState(false);
+  const [enableToggle, setEnableToggle] = useState(false);
 
   console.log('App Component');
 
-  const toggleHandler = () => setShowParagraph((currentState) => !currentState);
+  const toggleHandler = useCallback(() => {
+    if (enableToggle) setShowParagraph((currentState) => !currentState);
+  }, [enableToggle]);
+
+  const enableToggleHandler = () => setEnableToggle(true);
 
   return (
     <div className='app'>
       <h1>Optimization</h1>
-      <Demo show={false} />
+      <Demo show={showParagraph} />
+      <Button onClick={enableToggleHandler}>Enable Toggling</Button>
       <Button onClick={toggleHandler}>Toggle Paragraph</Button>
     </div>
   );
