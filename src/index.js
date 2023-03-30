@@ -8,6 +8,7 @@ import UserLoginApp from './UserLogin/App';
 import { AuthContextProvider } from './UserLogin/context/auth';
 import FoodOrderApp from './FoodOrder/App';
 import OptimizationApp from './Optimization/App';
+import UserListApp from './UserList/App';
 
 const { REACT_APP_PROJECT } = process.env;
 
@@ -40,6 +41,10 @@ switch (REACT_APP_PROJECT) {
 
   case 'OPTIMIZATION':
     root.render(<OptimizationApp />);
+    break;
+
+  case 'USERLIST':
+    root.render(<UserListApp />);
     break;
 
   default:

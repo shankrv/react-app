@@ -1,0 +1,31 @@
+.users {
+  margin: 2rem auto;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.users ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  border: 1px solid #3a3a3a;
+  background: #343a40;
+  color: white;
+  padding: 0.5rem 2.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover,
+button:active {
+  background: #f1f3f5;
+  border-color: #3a3a3a;
+  color: #343a40;
+}
