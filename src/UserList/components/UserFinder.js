@@ -3,27 +3,24 @@ import { Component, Fragment } from 'react';
 import classes from './UserFinder.module.css';
 
 import Users from './Users';
-
-const USERS = [
-  { id: 'U-1', name: 'John' },
-  { id: 'U-2', name: 'Michael' },
-  { id: 'U-3', name: 'David' },
-];
+import UsersContext from '../context/users';
 
 // Class-based Component
 class UserFinder extends Component {
+  static contextType = UsersContext;
+
   constructor() {
     super();
     this.state = { searchTerm: '', filteredUsers: [] };
   }
 
   componentDidMount() {
-    this.setState({ filteredUsers: USERS });
+    this.setState({ filteredUsers: this.context.users });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
-      this.setState({ filteredUsers: USERS.filter((user) => user.name.includes(this.state.searchTerm)) });
+      this.setState({ filteredUsers: this.context.users.filter((user) => user.name.includes(this.state.searchTerm)) });
     }
   }
 
