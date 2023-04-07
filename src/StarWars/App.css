@@ -1,0 +1,32 @@
+section {
+  margin: 1rem auto;
+  padding: 0 2rem;
+  width: 90%;
+  max-width: 60rem;
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+  border: 1px solid #04051dea;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background-color: white;
+  border: 1px solid linear-gradient(45deg, #04051dea 0%, #3f7fa2 100%);
+  color: #04051dea;
+}
