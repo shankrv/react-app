@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import './App.css';
@@ -9,6 +9,12 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const moviesHandler = useCallback(listMovies, []);
+
+  useEffect(() => {
+    moviesHandler();
+  }, [moviesHandler]);
 
   async function listMovies() {
     try {
