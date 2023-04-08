@@ -4,6 +4,9 @@ import axios from 'axios';
 import './App.css';
 
 import Movies from './components/Movies';
+import AddMovie from './components/AddMovie';
+
+const FIREBASE_URL = 'https://gh-react-app-movies-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -20,11 +23,20 @@ function App() {
     try {
       setError(null);
       setIsLoading(true);
-      const { data } = await axios.get('https://swapi.dev/api/films');
-      const films = data.results.map((film) => {
-        return { id: film.episode_id, title: film.title, release: film.release_date, description: film.opening_crawl };
-      });
-      setMovies(films);
+
+      const { data } = await axios.get(FIREBASE_URL);
+      console.log('Movies: ', data ? Object.keys(data).length : 0);
+
+      const moviesList = [];
+      for (const key in data) {
+        moviesList.push({
+          id: key,
+          title: data[key].title,
+          release: data[key].release,
+          description: data[key].description,
+        });
+      }
+      setMovies(moviesList);
     } catch (error) {
       console.error(error);
       setError(error.message);
@@ -32,8 +44,16 @@ function App() {
     setIsLoading(false);
   }
 
+  const addMovieHandler = async (movie) => {
+    const { data } = await axios.post(FIREBASE_URL, movie);
+    console.log(data);
+  };
+
   return (
     <Fragment>
+      <section>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
       <section>
         {!isLoading && error && <p>Something went wrong!</p>}
         {isLoading ? <p>Loading...</p> : <Movies movies={movies} />}
