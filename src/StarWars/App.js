@@ -6,7 +6,7 @@ import './App.css';
 import Movies from './components/Movies';
 import AddMovie from './components/AddMovie';
 
-const FIREBASE_URL = 'https://gh-react-app-movies-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json';
+const FIREBASE_URL = 'https://gh-react-app-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json';
 
 function App() {
   const [movies, setMovies] = useState([]);
