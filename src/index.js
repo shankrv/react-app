@@ -11,6 +11,7 @@ import OptimizationApp from './Optimization/App';
 import UserListApp from './UserList/App';
 import StarWarsApp from './StarWars/App';
 import CounterApp from './Counter/App';
+import TaskTrackerApp from './TaskTracker/App';
 
 const { REACT_APP_PROJECT } = process.env;
 
@@ -55,6 +56,10 @@ switch (REACT_APP_PROJECT) {
 
   case 'COUNTER':
     root.render(<CounterApp />);
+    break;
+
+  case 'TASKS':
+    root.render(<TaskTrackerApp />);
     break;
 
   default:
