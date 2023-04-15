@@ -9,6 +9,7 @@ const TaskForm = (props) => {
     event.preventDefault();
     const task = inputRef.current.value;
     if (task.trim().length) props.addTask(task);
+    event.target.reset();
   };
 
   return (
