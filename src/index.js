@@ -12,6 +12,7 @@ import UserListApp from './UserList/App';
 import StarWarsApp from './StarWars/App';
 import CounterApp from './Counter/App';
 import TaskTrackerApp from './TaskTracker/App';
+import UserInputApp from './UserInput/App';
 
 const { REACT_APP_PROJECT } = process.env;
 
@@ -60,6 +61,10 @@ switch (REACT_APP_PROJECT) {
 
   case 'TASKS':
     root.render(<TaskTrackerApp />);
+    break;
+
+  case 'USERINPUT':
+    root.render(<UserInputApp />);
     break;
 
   default:
