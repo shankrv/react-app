@@ -21,6 +21,11 @@ const Input = (props) => {
     else setIsNameValid(false);
   };
 
+  const nameChangeHandler = (event) => {
+    const name = event.target.value.trim();
+    if (name.length) setIsNameValid(true);
+  };
+
   const isNameInputInvalid = isNameTouched && !isNameValid;
   const nameInputClass = isNameInputInvalid ? 'form-control invalid' : 'form-control';
 
@@ -28,7 +33,7 @@ const Input = (props) => {
     <form onSubmit={submitHandler}>
       <div className={nameInputClass}>
         <label htmlFor='name'>Name</label>
-        <input type='text' id='name' ref={nameRef} onBlur={nameBlurHandler} />
+        <input type='text' id='name' ref={nameRef} onBlur={nameBlurHandler} onChange={nameChangeHandler} />
         {isNameInputInvalid && <p className='error-text'>Name must be valid.</p>}
       </div>
       <div className='form-actions'>
