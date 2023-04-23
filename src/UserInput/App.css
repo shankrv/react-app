@@ -68,4 +68,6 @@
 
 .error-text {
   color: #c92a2a;
+  text-align: left;
+  font-size: 0.8rem;
 }
