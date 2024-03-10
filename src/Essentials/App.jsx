@@ -1,32 +1,8 @@
 import './App.css';
-import reactAtomIcon from './assets/react-atom-icon.png';
+import Header from './components/Header/Header';
+import CoreConcept from './components/CoreConcept';
+
 import { CORE_CONCEPTS } from './data';
-
-const description = ['Fundamental', 'Crucial', 'Core'];
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  return (
-    <header>
-      <img src={reactAtomIcon} alt='react-atom-icon' />
-      <h1>React Essentials</h1>
-      <p>{description[getRandomInt(2)]} React concepts we will need for almost any app to build!</p>
-    </header>
-  );
-}
-
-function CoreConcept({ title, image, description }) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </li>
-  );
-}
 
 function App() {
   return (
