@@ -14,6 +14,8 @@ function App() {
     setSelected(selection);
   }
 
+  const content = EXAMPLES[selected];
+
   return (
     <div>
       <Header />
@@ -21,25 +23,32 @@ function App() {
         <section id='core-concepts'>
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((concept) => (
+              <CoreConcept {...concept} />
+            ))}
           </ul>
         </section>
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={() => selectHandler('components')}>Components</TabButton>
-            <TabButton onClick={() => selectHandler('jsx')}>JSX</TabButton>
-            <TabButton onClick={() => selectHandler('props')}>Props</TabButton>
-            <TabButton onClick={() => selectHandler('state')}>State</TabButton>
+            <TabButton isActive={selected === 'components'} onClick={() => selectHandler('components')}>
+              Components
+            </TabButton>
+            <TabButton isActive={selected === 'jsx'} onClick={() => selectHandler('jsx')}>
+              JSX
+            </TabButton>
+            <TabButton isActive={selected === 'props'} onClick={() => selectHandler('props')}>
+              Props
+            </TabButton>
+            <TabButton isActive={selected === 'state'} onClick={() => selectHandler('state')}>
+              State
+            </TabButton>
           </menu>
           <div id='tab-content'>
-            <h3>{EXAMPLES[selected].title}</h3>
-            <p>{EXAMPLES[selected].description}</p>
+            <h3>{content.title}</h3>
+            <p>{content.description}</p>
             <pre>
-              <code>{EXAMPLES[selected].code}</code>
+              <code>{content.code}</code>
             </pre>
           </div>
         </section>
