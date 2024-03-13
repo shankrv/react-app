@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Section from './Section';
 import TabButton from './TabButton';
 
 import { EXAMPLES } from '../data';
@@ -12,8 +13,7 @@ export default function Examples() {
 
   const content = EXAMPLES[selected];
   return (
-    <section id='examples'>
-      <h2>Examples</h2>
+    <Section id='examples' title='Examples'>
       <menu>
         <TabButton isActive={selected === 'components'} onClick={() => selectHandler('components')}>
           Components
@@ -35,6 +35,6 @@ export default function Examples() {
           <code>{content.code}</code>
         </pre>
       </div>
-    </section>
+    </Section>
   );
 }
