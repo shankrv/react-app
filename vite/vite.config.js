@@ -6,14 +6,10 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const config = {
-    publicDir: path.resolve('public'),
-    plugins: [react()],
-  };
+  const config = { public: path.resolve('public') };
+  const { VITE_APP_PROJECT } = loadEnv(mode, process.cwd(), '');
 
-  const env = loadEnv(mode, process.cwd(), '');
-
-  switch (env.VITE_APP_PROJECT) {
+  switch (VITE_APP_PROJECT) {
     case 'ESSENTIALS':
       config.root = path.resolve('src', 'Essentials');
       break;
@@ -30,10 +26,18 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'FinalCountdown');
       break;
 
+    case 'PROJECTMANAGER':
+      config.root = path.resolve('src', 'ProjectManager');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
   }
 
-  return config;
+  return {
+    plugins: [react()],
+    root: config.root,
+    publicDir: config.public,
+  };
 });
