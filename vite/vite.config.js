@@ -30,6 +30,10 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'ProjectManager');
       break;
 
+    case 'ELEGANTSTORE':
+      config.root = path.resolve('src', 'ElegantStore');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
