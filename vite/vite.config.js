@@ -26,12 +26,16 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'FinalCountdown');
       break;
 
-    case 'PROJECTMANAGER':
+    case 'PROJECT_MANAGER':
       config.root = path.resolve('src', 'ProjectManager');
       break;
 
-    case 'ELEGANTSTORE':
+    case 'ELEGANT_STORE':
       config.root = path.resolve('src', 'ElegantStore');
+      break;
+
+    case 'PLACE_PICKER':
+      config.root = path.resolve('src', 'PlacePicker');
       break;
 
     default:
