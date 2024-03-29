@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import './App.css';
 import Modal from './components/Modal';
@@ -47,13 +47,13 @@ function App() {
     if (storedIds.indexOf(id) === -1) localStorage.setItem('selectedPlaces', JSON.stringify([...storedIds, id]));
   }
 
-  function handleRemovePlace() {
+  const handleRemovePlace = useCallback(() => {
     setPickedPlaces((prevPickedPlaces) => prevPickedPlaces.filter((place) => place.id !== selectedPlace.current));
     setIsModalOpen(false);
 
     const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
     localStorage.setItem('selectedPlaces', JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current)));
-  }
+  }, []);
 
   function modalCloseHandler() {
     setIsModalOpen(false);
