@@ -38,6 +38,10 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'PlacePicker');
       break;
 
+    case 'REACT_QUIZ':
+      config.root = path.resolve('src', 'ReactQuiz');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
