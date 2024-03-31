@@ -3,31 +3,21 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Counter from './components/Counter/Counter';
+import Config from './components/Counter/Config';
 
 function App() {
   console.log('<App /> rendered');
-
-  const [enteredNumber, setEnteredNumber] = useState(0);
   const [chosenCount, setChosenCount] = useState(0);
 
-  function handleChange(event) {
-    setEnteredNumber(+event.target.value);
-  }
-
-  function handleSetClick() {
-    setChosenCount(enteredNumber);
-    setEnteredNumber(0);
+  function setCounter(count) {
+    setChosenCount(count);
   }
 
   return (
     <>
       <Header />
       <main>
-        <section id='configure-counter'>
-          <h2>Set Counter</h2>
-          <input type='number' onChange={handleChange} value={enteredNumber} />
-          <button onClick={handleSetClick}>Set</button>
-        </section>
+        <Config onSetCounter={setCounter} />
         <Counter initialCount={chosenCount} />
       </main>
     </>

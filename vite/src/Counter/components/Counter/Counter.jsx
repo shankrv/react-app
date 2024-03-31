@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import IconButton from '../Interface/IconButton.jsx';
 import PlusIcon from '../Interface/Icons/PlusIcon.jsx';
@@ -17,7 +17,7 @@ function isPrime(number) {
   return true;
 }
 
-export default function Counter({ initialCount }) {
+const Counter = memo(function Counter({ initialCount }) {
   console.log('<Counter /> rendered');
   const initialCountIsPrime = isPrime(initialCount);
   const [counter, setCounter] = useState(initialCount);
@@ -47,4 +47,6 @@ export default function Counter({ initialCount }) {
       </p>
     </section>
   );
-}
+});
+
+export default Counter;
