@@ -42,6 +42,10 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'ReactQuiz');
       break;
 
+    case 'COUNTER':
+      config.root = path.resolve('src', 'Counter');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
