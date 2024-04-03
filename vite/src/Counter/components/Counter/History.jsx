@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function HistoryItem({ count }) {
-  console.log('<HistoryItem /> rendered');
+function Item({ count }) {
+  console.log('<Item /> rendered');
   const [selected, setSelected] = useState(false);
 
   function clickHandler() {
@@ -19,8 +19,8 @@ export default function History({ history }) {
   console.log('<History /> rendered');
   return (
     <ol>
-      {history.map((count, index) => (
-        <HistoryItem key={index} count={count} />
+      {history.map((count) => (
+        <Item key={count.id} count={count.value} />
       ))}
     </ol>
   );
