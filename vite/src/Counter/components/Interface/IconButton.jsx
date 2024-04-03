@@ -1,4 +1,6 @@
-export default function IconButton({ children, icon, ...props }) {
+import { memo } from 'react';
+
+const IconButton = memo(function IconButton({ children, icon, ...props }) {
   console.log('<IconButton /> rendered');
 
   const Icon = icon;
@@ -9,4 +11,6 @@ export default function IconButton({ children, icon, ...props }) {
       <span className='button-text'>{children}</span>
     </button>
   );
-}
+});
+
+export default IconButton;
