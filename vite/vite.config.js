@@ -3,7 +3,7 @@ import process from 'process';
 
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import million from 'million/compiler';
+// import million from 'million/compiler';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -47,13 +47,18 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'Counter');
       break;
 
+    case 'REACT_FORMS':
+      config.root = path.resolve('src', 'ReactForms');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
   }
 
   return {
-    plugins: [million.vite({ auto: true }), react()],
+    plugins: [react()],
+    // plugins: [million.vite({ auto: true }), react()],
     root: config.root,
     publicDir: config.public,
   };
