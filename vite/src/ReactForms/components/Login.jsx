@@ -13,7 +13,7 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={(e) => submitHandler(e)}>
+    <form onSubmit={submitHandler}>
       <h2>Login</h2>
 
       <div className='control-row'>
