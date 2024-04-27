@@ -51,6 +51,10 @@ export default defineConfig(({ mode }) => {
       config.root = path.resolve('src', 'ReactForms');
       break;
 
+    case 'FOOD_ORDER':
+      config.root = path.resolve('src', 'FoodOrder');
+      break;
+
     default:
       config.root = path.resolve('src', 'Essentials');
       break;
