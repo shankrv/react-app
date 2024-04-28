@@ -1,0 +1,142 @@
+[
+  {
+    "id": "M1",
+    "name": "Idli",
+    "description": "Hot and fluffy, made of our home-made fermented batter, served twith coconut chutney and special chutney of the day.",
+    "price": "60",
+    "image": "images/meals/idli.jpeg"
+  },
+  {
+    "id": "M2",
+    "name": "Masala Dosa",
+    "description": "Dosa topped with aloo masala and served with spiced sambar, coconut chutney and special chutney of the day.",
+    "price": "130",
+    "image": "images/meals/masala-dosa.avif"
+  },
+  {
+    "id": "M3",
+    "name": "Poori Sabzi",
+    "description": "Pooris made with perfect blend of wheat flour, served with aloo matar tamatar sabzi and raita.",
+    "price": "145",
+    "image": "images/meals/poori-sabzi.avif"
+  },
+  {
+    "id": "M4",
+    "name": "Aloo Paratha",
+    "description": "Flavorful and spiced potato stuffing, rolled inside a freshly made whole wheat dough, and cooked to perfection on a griddle.",
+    "price": "175",
+    "image": "images/meals/aloo-paratha.avif"
+  },
+  {
+    "id": "M5",
+    "name": "Garlic Naan",
+    "description": "Good old naan cooked in a mix of garlic paste and ghee.",
+    "price": "75",
+    "image": "images/meals/garlic-naan.avif"
+  },
+  {
+    "id": "M6",
+    "name": "Dal Tadka",
+    "description": "Boiled lentils tempered with a simmering mix of cumin seeds, mustard seeds, garlic, chilies, and curry leaves tossed into ghee.",
+    "price": "149",
+    "image": "images/meals/dal-tadka.avif"
+  },
+  {
+    "id": "M7",
+    "name": "Paneer Tikka Masala",
+    "description": "Chunks of tender cottage cheese marinated in a mix of signature spices, grilled on a tandoor to add a crispy edge.",
+    "price": "245",
+    "image": "images/meals/paneer-tikka-masala.avif"
+  },
+  {
+    "id": "M8",
+    "name": "Chicken Lababdar",
+    "description": "Boneless chicken pieces marinated and cooked in a mix of onions, tomatoes, cream, ginger, butter, mustard oil, salt, cumin seeds, and a melange of spices.",
+    "price": "275",
+    "image": "images/meals/chicken-lababdar.avif"
+  },
+  {
+    "id": "M9",
+    "name": "Samosa",
+    "description": "Most popular north indian snacks filled with special potato mixture, served with sweet and green chutney for a hearty delicious snack.",
+    "price": "40",
+    "image": "images/meals/samosa.avif"
+  },
+  {
+    "id": "M10",
+    "name": "Pakoda",
+    "description": "A true anytime snack made by mixing thin sliced onions, spices, salts & herbs in gram flour dip and fried to form a crunchy and light pakodas.",
+    "price": "90",
+    "image": "images/meals/pakoda.jpeg"
+  },
+  {
+    "id": "M11",
+    "name": "Nimki",
+    "description": "A crunchy savoury snack prep in maida delicately seasoned with carom (ajwain) and nigella seeds.",
+    "price": "75",
+    "image": "images/meals/nimki.avif"
+  },
+  {
+    "id": "M12",
+    "name": "Chai",
+    "description": "Sweet and spicy notes of flavourful green cardamom pods infused with fresh tea.",
+    "price": "30",
+    "image": "images/meals/chai.avif"
+  },
+  {
+    "id": "M13",
+    "name": "Manchow Soup",
+    "description": "Hot & Spicy soup made with a healthy combo of beans, carrots, cabbage, shiitake mushrooms served alongside crispy noodles.",
+    "price": "129",
+    "image": "images/meals/manchow-soup.avif"
+  },
+  {
+    "id": "M14",
+    "name": "Paneer Chilly",
+    "description": "A favourite of the veg lovers; this spicy vegetarian dish meets the flavours of China with tender paneer tossed in soya and other home-made chilli sauce alongside garlic, onions and green chillies with the final sprinkle of spring onion on top.",
+    "price": "255",
+    "image": "images/meals/paneer-chilly.avif"
+  },
+  {
+    "id": "M15",
+    "name": "Cheese Pizza",
+    "description": "Cheese overloaded pizza with a medley of Mozzarella, Cheddar & Ghost pepper flavoured cheese.",
+    "price": "275",
+    "image": "images/meals/cheese-pizza.avif"
+  },
+  {
+    "id": "M16",
+    "name": "Chicken Biryani",
+    "description": "Tender chicken pieces are marinated with exuberant bhuna spices that are freshly ground and dum pukht with aromatic rice.",
+    "price": "349",
+    "image": "images/meals/chicken-biryani.avif"
+  },
+  {
+    "id": "M17",
+    "name": "Rasgulla",
+    "description": "A Bengali indulgence of cloud-like chenna balls soaked in delicately sweetened syrup, blissful in every bite.",
+    "price": "60",
+    "image": "images/meals/rasgulla.avif"
+  },
+  {
+    "id": "M18",
+    "name": "Gulab Jamun",
+    "description": "Beloved and irresistible, the gulab jamun with its melt-in-your-mouth texture, made with farm fresh khova and shuddh ghee, will keep you coming back for more.",
+    "price": "60",
+    "image": "images/meals/gulab-jamun.avif"
+  },
+  {
+    "id": "M19",
+    "name": "Rasmalai",
+    "description": "Delicate cottage cheese dumplings soaked in fragrant saffron milk, garnished with pistachios. A harmonious fusion of textures and flavors that embodies the essence of Indian sweet traditions. Experience pure indulgence that lingers on the palate.",
+    "price": "125",
+    "image": "images/meals/rasmalai.avif"
+  },
+  {
+    "id": "M20",
+    "name": "Rabdi Jalebi",
+    "description": "Spiral-shaped crispy jalebis soaked in chashni paired with creamy, rich milk reduction rabdi, made for each other!",
+    "price": "120",
+    "image": "images/meals/rabdi-jalebi.jpeg"
+  }
+]
