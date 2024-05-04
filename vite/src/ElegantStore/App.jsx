@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header.jsx';
 import Shop from './components/Shop.jsx';
-import CartContextProvider from './context/cart.jsx';
+import CartContextProvider from './context/Cart.jsx';
 
 function App() {
   return (
