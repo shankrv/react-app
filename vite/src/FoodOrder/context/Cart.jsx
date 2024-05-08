@@ -19,7 +19,7 @@ function cartReducer(state, action) {
     const items = [...state.items];
     const index = items.findIndex((item) => item.id === action.id);
     const item = items[index];
-    item.quantity === 1 ? items.splice(index, 1) : (item.quantity = item.quantity - 1);
+    item.quantity === 1 ? items.splice(index, 1) : (items[index] = { ...item, quantity: item.quantity - 1 });
     return { ...state, items };
   }
 
