@@ -1,10 +1,18 @@
 import { useContext } from 'react';
 import Button from './Interface/Button';
 import CartContext from '../context/Cart';
+import ProgressContext from '../context/Progress';
 
 export default function Header() {
   const cartCtx = useContext(CartContext);
+  const progressCtx = useContext(ProgressContext);
+
   const count = cartCtx.items.reduce((total, item) => total + item.quantity, 0);
+
+  function showCart() {
+    progressCtx.showCart();
+  }
+
   return (
     <header id='main-header'>
       <div id='title'>
@@ -12,7 +20,9 @@ export default function Header() {
         <h1>Food Order</h1>
       </div>
       <nav>
-        <Button isText>Cart ({count})</Button>
+        <Button isText onClick={showCart}>
+          Cart ({count})
+        </Button>
       </nav>
     </header>
   );
