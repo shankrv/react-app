@@ -15,8 +15,21 @@ app.use((req, res, next) => {
 
 app.get('/api/meals', async (req, res) => {
   const meals = await fs.readFile('./data/meals.json', 'utf-8');
-  res.status(200).json(JSON.parse(meals));
+  return res.status(200).json(JSON.parse(meals));
 });
+
+app.post('/api/orders', async (req, res) => {
+  const order = { id: parseInt(Math.random() * 1000), ...req.body, date: new Date() };
+  if (!order.items || !order.items?.length) return res.status(400).json({ message: 'No items to order' });
+
+  const orders = JSON.parse(await fs.readFile('./data/orders.json', 'utf-8'));
+  orders.push(order);
+
+  await fs.writeFile('./data/orders.json', JSON.stringify(orders));
+  return res.status(201).json(order);
+});
+
+app.options('*', (req, res) => res.sendStatus(200));
 
 app.use((req, res) => res.status(404).send('<h3>Page not found.</h3>'));
 app.use((error, req, res) => res.status(500).send('<h3>Internal Server Error</h3>'));
