@@ -17,11 +17,15 @@ export default function Cart() {
   }
 
   function showCheckout() {
-    progressCtx.hide();
+    progressCtx.showCheckout();
   }
 
   return (
-    <Modal className='cart' open={progressCtx.progress === 'cart'}>
+    <Modal
+      className='cart'
+      open={progressCtx.progress === 'cart'}
+      onClose={progressCtx.progress === 'cart' ? hideCart : null}
+    >
       <h2>Your Cart</h2>
       <ul>
         {cartCtx.items.map((item) => (
@@ -40,7 +44,7 @@ export default function Cart() {
         <Button isText onClick={hideCart}>
           Close
         </Button>
-        <Button onClick={showCheckout}>Checkout</Button>
+        {cartCtx.items.length > 0 && <Button onClick={showCheckout}>Checkout</Button>}
       </p>
     </Modal>
   );
