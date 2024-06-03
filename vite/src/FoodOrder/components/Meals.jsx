@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import MealItem from './MealItem';
+import useAxios from '../hooks/useAxios';
+import Error from './Error';
 
 export default function Meals() {
-  const [meals, setMeals] = useState([]);
+  const { isLoading, data: meals = [], error } = useAxios('http://localhost:3000/api/meals');
 
-  useEffect(() => {
-    async function getAvailableMeals() {
-      try {
-        const { data: availableMeals } = await axios.get('http://localhost:3000/api/meals');
-        setMeals(availableMeals);
-      } catch (error) {
-        console.error('API Error: ', error.message);
-      }
-    }
-    getAvailableMeals();
-  }, []);
+  if (isLoading) return <p className='center'>Loading...</p>;
+  if (error) return <Error title='Meals Error' message={error} />;
 
   return (
     <ul id='meals'>
