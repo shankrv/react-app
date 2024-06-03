@@ -11,10 +11,10 @@ export default function useAxios(url, config) {
   const [isLoading, setIsLoading] = useState(false);
 
   const sendRequest = useCallback(
-    async function () {
+    async function (body) {
       setIsLoading(true);
       try {
-        const response = await httpRequest(url, config);
+        const response = await httpRequest(url, { ...config, data: body });
         setData(response.data);
       } catch (error) {
         setError(error.message);
@@ -28,5 +28,9 @@ export default function useAxios(url, config) {
     if (!config) sendRequest();
   }, [config, sendRequest]);
 
-  return { data, error, isLoading, sendRequest };
+  function clearData() {
+    setData();
+  }
+
+  return { data, error, isLoading, sendRequest, clearData };
 }

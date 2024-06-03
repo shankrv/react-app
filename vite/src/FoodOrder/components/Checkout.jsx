@@ -1,6 +1,7 @@
-import axios from 'axios';
 import { useContext } from 'react';
 import { currency } from '../util/format';
+import useAxios from '../hooks/useAxios';
+import Error from './Error';
 import Modal from './Interface/Modal';
 import Input from './Interface/Input';
 import Button from './Interface/Button';
@@ -10,11 +11,20 @@ import ProgressContext from '../context/Progress';
 export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const progressCtx = useContext(ProgressContext);
+  const { sendRequest, isLoading, data, error, clearData } = useAxios('http://localhost:3000/api/orders', {
+    method: 'post',
+  });
 
   const total = cartCtx.items.reduce((total, item) => total + item.price * item.quantity, 0);
 
   function hideCheckout() {
     progressCtx.hide();
+  }
+
+  function clearCart() {
+    progressCtx.hide();
+    cartCtx.clear();
+    clearData();
   }
 
   async function submitHandler(event) {
@@ -23,11 +33,22 @@ export default function Checkout() {
     const fd = new FormData(event.target);
     const data = Object.fromEntries(fd.entries());
 
-    const { status, data: order } = await axios.post('http://localhost:3000/api/orders', {
-      user: { ...data },
-      items: cartCtx.items,
-    });
-    console.log({ status, order });
+    sendRequest({ user: { ...data }, items: cartCtx.items });
+  }
+
+  if (data) {
+    return (
+      <Modal open={progressCtx.progress === 'checkout'} onClose={clearCart}>
+        <h2>Success!</h2>
+        <p>Your order has been placed successfully.</p>
+        <p>
+          Order ID: <strong>{data.id}</strong>
+        </p>
+        <p className='modal-actions'>
+          <Button onClick={clearCart}>OK</Button>
+        </p>
+      </Modal>
+    );
   }
 
   return (
@@ -42,11 +63,18 @@ export default function Checkout() {
           <Input label='City' type='text' id='city' />
           <Input label='Pincode' type='text' id='pincode' />
         </div>
+        {error && <Error title='Order Error' message={error} />}
         <p className='modal-actions'>
-          <Button type='button' isText onClick={hideCheckout}>
-            Close
-          </Button>
-          <Button>Order</Button>
+          {isLoading ? (
+            <span>Placing your order...</span>
+          ) : (
+            <>
+              <Button type='button' isText onClick={hideCheckout}>
+                Close
+              </Button>
+              <Button>Order</Button>
+            </>
+          )}
         </p>
       </form>
     </Modal>
